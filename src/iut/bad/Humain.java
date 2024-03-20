@@ -26,4 +26,12 @@ public abstract class Humain {
 	protected void details() {
 		System.out.println("Nom: " + getNom() + "\nPrenom: " + getPrenom() + "\nAge: " + getAge());
 	}
+	
+	protected void manger() {
+		System.out.println(getNom() + " " + getPrenom() + " mange.");
+	}
+	
+	protected void boire() {
+		System.out.println(getNom() + " " + getPrenom() + " mange.");
+	}
 }
