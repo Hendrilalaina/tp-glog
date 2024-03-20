@@ -13,7 +13,9 @@ public class MoneyTest {
 		Money expected = new Money(26, "CHF");
 		Money result = m12CHF.add(m14CHF); 
 		
-		assertTrue(expected.equals(result)); 
+		assertTrue(expected.equals(result));
+//		Reponse de question3:
+//		Ce test ne passe pas car le methode equals() retourne vrai si les instances sont identiques mais dans ce cas, seuls les proprietes sont de meme valeur.
 	}
 
 }
