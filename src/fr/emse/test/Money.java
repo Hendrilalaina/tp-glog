@@ -20,4 +20,9 @@ public class Money {
 	public Money add(Money m) {
 		return new Money(amount() + m.amount(), currency());
 	}
+	
+	public boolean equals(Money m) {
+		if (m == null) return false;
+		return (amount() == m.amount() && currency().equals(m.currency()));
+	}
 }

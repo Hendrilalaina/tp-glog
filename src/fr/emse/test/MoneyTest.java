@@ -26,7 +26,7 @@ public class MoneyTest {
 		
 		assertTrue(!m12CHF.equals(null));
 		assertEquals(m12CHF, m12CHF);
-		assertEquals(m12CHF, new Money(12, "CHF"));
+		assertTrue(m12CHF.equals(new Money(12, "CHF")));
 		assertTrue(!m12CHF.equals(m14CHF));
 	}
 }
