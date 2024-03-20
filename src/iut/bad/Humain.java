@@ -31,8 +31,13 @@ public abstract class Humain implements Consommation{
 	public void manger() {
 		System.out.println(getNom() + " " + getPrenom() + " mange.");
 	}
+	
 	@Override
 	public void boire() {
 		System.out.println(getNom() + " " + getPrenom() + " mange.");
+	}
+	
+	protected void ami(Humain h) {
+		System.out.println(getNom() + " " + getPrenom() + " et " + h.getNom() + " " + h.getPrenom() + " sont ami(e)s.");
 	}
 }
