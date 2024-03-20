@@ -23,7 +23,7 @@ public abstract class Humain {
 		this.age = age;
 	}
 	
-	public void details() {
+	protected void details() {
 		System.out.println("Nom: " + getNom() + "\nPrenom: " + getPrenom() + "\nAge: " + getAge());
 	}
 }
