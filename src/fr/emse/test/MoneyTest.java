@@ -1,5 +1,6 @@
 package fr.emse.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -18,4 +19,14 @@ public class MoneyTest {
 //		Ce test ne passe pas car le methode equals() retourne vrai si les instances sont identiques mais dans ce cas, seuls les proprietes sont de meme valeur.
 	}
 
+	@Test
+	public void testEquals() {
+		Money m12CHF = new Money(12, "CHF");
+		Money m14CHF = new Money(14, "CHF");
+		
+		assertTrue(!m12CHF.equals(null));
+		assertEquals(m12CHF, m12CHF);
+		assertEquals(m12CHF, new Money(12, "CHF"));
+		assertTrue(!m12CHF.equals(m14CHF));
+	}
 }
