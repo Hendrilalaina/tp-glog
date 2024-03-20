@@ -1,6 +1,6 @@
 package iut.bad;
 
-public abstract class Humain {
+public abstract class Humain implements Consommation{
 	protected String nom;
 	protected String prenom;
 	protected int age;
@@ -27,11 +27,12 @@ public abstract class Humain {
 		System.out.println("Nom: " + getNom() + "\nPrenom: " + getPrenom() + "\nAge: " + getAge());
 	}
 	
-	protected void manger() {
+	@Override
+	public void manger() {
 		System.out.println(getNom() + " " + getPrenom() + " mange.");
 	}
-	
-	protected void boire() {
+	@Override
+	public void boire() {
 		System.out.println(getNom() + " " + getPrenom() + " mange.");
 	}
 }
