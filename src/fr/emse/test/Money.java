@@ -6,7 +6,8 @@ public class Money {
 	
 	public Money(int amount, String currency) {
 		fAmount = amount;
-		fCurrency = currency;//
+		fCurrency = currency;
+		/////
 	}
 	
 	public int amount() {
