@@ -7,11 +7,10 @@ public class Money {
 	public Money(int amount, String currency) {
 		fAmount = amount;
 		fCurrency = currency;
-		/////
 	}
 	
 	public int amount() {
-		return fAmount;
+		return fAmount;//amount
 	}
 	
 	public String currency() {
