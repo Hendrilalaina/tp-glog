@@ -39,7 +39,7 @@ public abstract class Humain implements Consommation{
 	
 	@Override
 	public void boire() {
-		System.out.println(getNom() + " " + getPrenom() + " mange.");
+		System.out.println(getNom() + " " + getPrenom() + " boit.");
 	}
 	
 	protected void ami(Humain h) {
