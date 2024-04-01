@@ -22,8 +22,16 @@ public class Money {
 		
 	}
 	
-	public boolean equals(Money m) {
-		if (m == null) return false;
-		return (amount() == m.amount() && currency().equals(m.currency()));
+	@Override
+	public boolean equals(Object object) {
+		if(this == object) {
+			return true;
+		}
+		if(object instanceof Money) {
+			Money money = (Money) object;
+			return (amount() == money.amount() && currency().equals(money.currency()));
+		}
+		return false;
+		
 	}
 }
