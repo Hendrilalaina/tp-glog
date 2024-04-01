@@ -33,7 +33,7 @@ public class MoneyBagTest {
 	public void testMixedSimpleAdd() {
 		Money bag[] = { f12CHF, f7USD };
 		MoneyBag expected = new MoneyBag(bag);
-		assertEquals(expected, f12CHF.add(f7USD));
+		assertTrue(expected.equals(f12CHF.add(f7USD)));
 	}
 	
 	@Test

@@ -1,5 +1,6 @@
 package fr.emse.test;
 
+import java.util.Iterator;
 import java.util.Vector;
 
 public class MoneyBag implements IMoney{
@@ -30,17 +31,70 @@ public class MoneyBag implements IMoney{
 		}
 	}
 	
+//	public boolean equals(MoneyBag mb) {
+//		if (mb == null) return false;
+//		if(fMonies.size() != mb.fMonies.size()) return false;
+//		for(int i = 0; i < fMonies.size(); i++) {
+//			if(!fMonies.get(i).equals(mb.fMonies.get(i)))
+//				return false;
+//		}
+//		return true;
+//	}
+	
+	public boolean equals(Object o) {
+		if (o == null) return(false);
+
+		if (!(o instanceof MoneyBag)) return(false);
+
+		MoneyBag mb = (MoneyBag)o;
+		if (fMonies.size() != mb.fMonies.size()) return(false);
+
+		Iterator<Money> iOther = mb.fMonies.iterator();
+		Iterator<Money> iThis = fMonies.iterator();
+
+		while (iThis.hasNext()) {
+			Money mOther = (Money)iOther.next();
+			Money mThis = (Money)iThis.next();
+
+			if (((mThis.amount() != mOther.amount())
+					|| !mThis.currency().equals(mOther.currency()))) {
+				return(false);
+			}
+		}
+		return(true);
+	}
+
+
 	public IMoney add(IMoney m) {
-		return(m.addMoney(this));
+		return(m.addMoneyBag(this));
 	}
 	
-	public boolean equals(MoneyBag mb) {
-		if (mb == null) return false;
-		if(fMonies.size() != mb.fMonies.size()) return false;
-		for(int i = 0; i < fMonies.size(); i++) {
-			if(!fMonies.get(i).equals(mb.fMonies.get(i)))
-				return false;
+	@Override
+	public IMoney addMoney(Money m) {
+		// Add Money to this MoneyBag
+		for (Money mbm : fMonies) {
+			if (mbm.currency() == m.currency()) {
+				mbm.add(m);
+				return(this);
+			}
 		}
-		return true;
+		this.appendMoney(m);
+		return(this);
 	}
+
+	@Override
+	public IMoney addMoneyBag(MoneyBag mb) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public String toString() {
+		String s = "MonbeyBag: ";
+		for (Money m : fMonies) {
+			s += m.toString() + " ";
+		}
+		return(s);
+	}
+
 }

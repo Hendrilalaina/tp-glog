@@ -17,15 +17,6 @@ public class Money implements IMoney{
 		return fCurrency;
 	}
 	
-	public Money add(Money m) {
-		if (m.currency().equals(currency())) return new Money(amount() + m.amount(), currency());
-		return new MoneyBag(this, m);
-	}
-	
-	public IMoney add(IMoney m) {
-		return(m.addMoney(this));
-	}
-	
 	@Override
 	public boolean equals(Object object) {
 		if(this == object) {
@@ -38,4 +29,24 @@ public class Money implements IMoney{
 		return false;
 		
 	}
+	
+	public IMoney add(IMoney m) {
+		return(m.addMoney(this));
+	}
+
+	@Override
+	public IMoney addMoney(Money m) {
+		if (currency().equals(m.currency())) {
+			return(new Money(amount() + m.amount(), currency()));
+		}
+		else {
+			return(new MoneyBag(this, m));
+		}
+	}
+
+	@Override
+	public IMoney addMoneyBag(MoneyBag mb) {
+		return(mb.addMoney(this));
+	}
+
 }
