@@ -28,6 +28,11 @@ public abstract class Humain implements Consommation{
 	}
 	
 	@Override
+    public String toString() {
+        return "Nom : " + getNom() + "\nPrenom : " + getPrenom() + "\nAge : " + getAge();
+    }
+	
+	@Override
 	public void manger() {
 		System.out.println(getNom() + " " + getPrenom() + " mange.");
 	}
